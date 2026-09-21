@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^node --check 'C:\\\\Users\\\\kansm\\\\OneDrive\\\\Desktop\\\\ezaki-parfum\\\\scripts\\\\migrate-products-to-supabase\\.mjs'$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}

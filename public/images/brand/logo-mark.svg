@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Logo EZAKI Parfum">
+  <defs>
+
+    <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8C6F14"/>
+      <stop offset="45%" stop-color="#E5C76B"/>
+      <stop offset="100%" stop-color="#C9A227"/>
+    </linearGradient>
+    <radialGradient id="lghalo" cx="50%" cy="42%" r="62%">
+      <stop offset="0%" stop-color="#C9A227" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#C9A227" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="256" cy="256" r="256" fill="#080808"/>
+  <circle cx="256" cy="256" r="250" fill="url(#lghalo)"/>
+  <circle cx="256" cy="256" r="228" fill="none" stroke="url(#lg)" stroke-width="3"/>
+  <circle cx="256" cy="256" r="206" fill="none" stroke="#C9A227" stroke-opacity="0.35" stroke-width="1.5"/>
+  <text x="256" y="262" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="168" fill="url(#lg)">E</text>
+  <text x="256" y="328" text-anchor="middle" font-family="Georgia, serif" font-size="44" letter-spacing="14" fill="url(#lg)">EZAKI</text>
+  <text x="256" y="374" text-anchor="middle" font-family="Georgia, serif" font-size="26" letter-spacing="16" fill="#E5C76B" opacity="0.85">PARFUM</text>
+</svg>

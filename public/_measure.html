@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>mesure</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        background: #000;
+        color: #0f0;
+        font: 11px/1.45 monospace;
+      }
+      #out {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        max-height: 100vh;
+        overflow: hidden;
+        margin: 0;
+        padding: 4px 6px;
+        background: #000;
+        z-index: 9;
+      }
+      .stack iframe {
+        display: block;
+        border: 0;
+      }
+      .stack {
+        opacity: 0.02;
+      }
+    </style>
+  </head>
+  <body>
+    <pre id="out">pending</pre>
+    <div class="stack" id="stack"></div>
+    <script>
+      var WIDTHS_MOBILE = [320, 375, 390, 430];
+      var WIDTHS_LARGE = [768, 1024, 1440, 1920];
+      var PAGES_ALL = ['/', '/parfums', '/parfums/ezaki-oud', '/panier', '/contact', '/a-propos'];
+      var PAGES_LARGE = ['/', '/parfums', '/parfums/ezaki-oud'];
+
+      var jobs = [];
+      WIDTHS_MOBILE.forEach(function (w) {
+        PAGES_ALL.forEach(function (u) {
+          jobs.push({ w: w, u: u });
+        });
+      });
+      WIDTHS_LARGE.forEach(function (w) {
+        PAGES_LARGE.forEach(function (u) {
+          jobs.push({ w: w, u: u });
+        });
+      });
+
+      var stack = document.getElementById('stack');
+      var out = document.getElementById('out');
+      var results = [];
+
+      function isClipped(doc, el) {
+        var n = el.parentElement;
+        while (n && n !== doc.body) {
+          var o = doc.defaultView.getComputedStyle(n).overflowX;
+          if (o !== 'visible') return true;
+          n = n.parentElement;
+        }
+        return false;
+      }
+
+      function audit(frame, job) {
+        var doc = frame.contentDocument;
+        var de = doc.documentElement;
+        var vw = de.clientWidth;
+        var lines = ['--- ' + job.u + ' @' + job.w + ' : clientW=' + vw + ' scrollW=' + de.scrollWidth];
+        if (de.scrollWidth > vw + 1) lines[0] += '  <<< DEBORDEMENT DOCUMENT';
+        var nodes = doc.querySelectorAll('body *');
+        var offenders = 0;
+        for (var i = 0; i < nodes.length; i++) {
+          var el = nodes[i];
+          var r = el.getBoundingClientRect();
+          if (r.width === 0 || r.height === 0) continue;
+          if ((r.right > vw + 1 || r.left < -1) && !isClipped(doc, el)) {
+            offenders++;
+            if (offenders <= 12) {
+              lines.push(
+                'OFF ' + el.tagName + ' ' + Math.round(r.left) + '..' + Math.round(r.right) + ' | ' +
+                  String(el.getAttribute('class') || '').slice(0, 100),
+              );
+            }
+          }
+        }
+        if (offenders === 0) lines.push('OK aucun element hors cadre (hors zones scrollables)');
+        else lines.push('TOTAL hors cadre : ' + offenders);
+        return lines.join('\n');
+      }
+
+      var done = 0;
+      jobs.forEach(function (job, index) {
+        var frame = document.createElement('iframe');
+        frame.style.width = job.w + 'px';
+        frame.style.height = '1100px';
+        frame.src = job.u;
+        frame.addEventListener('load', function () {
+          setTimeout(function () {
+            try {
+              results[index] = audit(frame, job);
+            } catch (e) {
+              results[index] = '--- ' + job.u + ' @' + job.w + ' : ERREUR ' + e.message;
+            }
+            done++;
+            if (done === jobs.length) {
+              out.textContent = results.join('\n');
+            }
+          }, 700);
+        });
+        stack.appendChild(frame);
+      });
+    </script>
+  </body>
+</html>

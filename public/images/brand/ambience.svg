@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200" role="img" aria-label="Ambiance EZAKI Parfum">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="38%" r="55%">
+      <stop offset="0%" stop-color="#C9A227" stop-opacity="0.55"/>
+      <stop offset="55%" stop-color="#C9A227" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#C9A227" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="goldline" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8C6F14"/>
+      <stop offset="50%" stop-color="#E5C76B"/>
+      <stop offset="100%" stop-color="#C9A227"/>
+    </linearGradient>
+    <linearGradient id="glass-1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2A2A2A"/>
+      <stop offset="100%" stop-color="#050505"/>
+    </linearGradient>
+      <radialGradient id="vignette" cx="50%" cy="45%" r="72%">
+        <stop offset="55%" stop-color="#000000" stop-opacity="0"/>
+        <stop offset="100%" stop-color="#000000" stop-opacity="0.55"/>
+      </radialGradient>
+      <filter id="grain" x="0" y="0" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="7" result="noise"/>
+        <feColorMatrix type="saturate" values="0" in="noise" result="mono"/>
+        <feComponentTransfer in="mono" result="soft">
+          <feFuncA type="linear" slope="0.16" intercept="0"/>
+        </feComponentTransfer>
+        <feBlend in="SourceGraphic" in2="soft" mode="overlay"/>
+      </filter>
+  </defs>
+  <rect width="1200" height="1200" fill="#080808"/>
+  <circle cx="600" cy="470" r="560" fill="url(#glow)"/>
+  <g stroke="#C9A227" stroke-opacity="0.13" fill="none" stroke-width="1.5">
+    <path d="M600 120 L760 280 L600 440 L440 280 Z"/>
+    <path d="M600 180 L710 290 L600 400 L490 290 Z"/>
+    <path d="M600 240 L660 300 L600 360 L540 300 Z"/>
+    <path d="M600 760 L760 920 L600 1080 L440 920 Z"/>
+    <path d="M180 600 L300 720 L180 840 L60 720 Z"/>
+    <path d="M1020 600 L1140 720 L1020 840 L900 720 Z"/>
+  </g>
+  <g transform="translate(300 230) scale(0.62)" stroke-linejoin="round">
+  <g>
+
+    <linearGradient id="gold-1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8C6F14"/>
+      <stop offset="45%" stop-color="#E5C76B"/>
+      <stop offset="100%" stop-color="#C9A227"/>
+    </linearGradient>
+
+    <linearGradient id="gold-2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8C6F14"/>
+      <stop offset="45%" stop-color="#E5C76B"/>
+      <stop offset="100%" stop-color="#C9A227"/>
+    </linearGradient>
+    <g>
+      <rect x="322" y="96" width="156" height="108" rx="14" fill="#8C6F14"/>
+      <rect x="350.08" y="102" width="24.96" height="96" rx="6" fill="url(#gold-2)" opacity="0.35"/>
+    </g>
+    <rect x="360" y="198" width="80" height="46" fill="url(#gold-1)" opacity="0.9"/>
+    <rect x="286" y="288" width="294" height="70" rx="18" fill="url(#gold-1)"/>
+    <path d="M262 356 L604 356 L644 806 Q648 880 582 890 L284 890 Q218 880 222 806 Z" fill="url(#glass-1)" stroke="url(#gold-1)" stroke-width="4"/>
+    <path d="M300 372 L360 372 L330 866 L282 862 Z" fill="#2A2A2A" opacity="0.22"/>
+    <rect x="286" y="560" width="230" height="2" fill="url(#gold-1)" opacity="0.5"/>
+    <text x="401" y="530" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="46" letter-spacing="6" fill="url(#gold-1)">EZAKI</text>
+    <text x="401" y="640" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="34" letter-spacing="10" fill="url(#gold-1)" opacity="0.85">PARFUM</text>
+    <text x="401" y="700" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#E5C76B" opacity="0.75">عطر</text>
+    <circle cx="401" cy="446" r="34" fill="none" stroke="url(#gold-1)" stroke-width="2" opacity="0.8"/>
+    <text x="401" y="459" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="34" fill="url(#gold-1)">E</text>
+    <ellipse cx="401" cy="920" rx="210" ry="34" fill="#000000" opacity="0.5"/>
+  </g>
+  </g>
+  <rect width="100%" height="100%" fill="url(#vignette)"/>
+  <rect width="100%" height="100%" filter="url(#grain)" opacity="0.5"/>
+</svg>

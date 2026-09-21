@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="L'art de se parfumer avec EZAKI">
+  <defs>
+
+    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8C6F14"/>
+      <stop offset="45%" stop-color="#E5C76B"/>
+      <stop offset="100%" stop-color="#C9A227"/>
+    </linearGradient>
+    <radialGradient id="halo2" cx="46%" cy="38%" r="60%">
+      <stop offset="0%" stop-color="#C9A227" stop-opacity="0.38"/>
+      <stop offset="100%" stop-color="#C9A227" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="silk" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1C1710"/>
+      <stop offset="100%" stop-color="#070606"/>
+    </linearGradient>
+      <radialGradient id="vignette" cx="50%" cy="45%" r="72%">
+        <stop offset="55%" stop-color="#000000" stop-opacity="0"/>
+        <stop offset="100%" stop-color="#000000" stop-opacity="0.55"/>
+      </radialGradient>
+      <filter id="grain" x="0" y="0" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="7" result="noise"/>
+        <feColorMatrix type="saturate" values="0" in="noise" result="mono"/>
+        <feComponentTransfer in="mono" result="soft">
+          <feFuncA type="linear" slope="0.16" intercept="0"/>
+        </feComponentTransfer>
+        <feBlend in="SourceGraphic" in2="soft" mode="overlay"/>
+      </filter>
+    <linearGradient id="glass-1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2E2E2E"/>
+      <stop offset="100%" stop-color="#060606"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" fill="#0A0A0A"/>
+  <circle cx="380" cy="330" r="420" fill="url(#halo2)"/>
+  <path d="M0 560 Q200 470 400 560 T800 540 L800 800 L0 800 Z" fill="url(#silk)"/>
+  <g transform="translate(250 170) scale(0.42)" stroke-linejoin="round">
+  <g>
+
+    <linearGradient id="gold-1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8C6F14"/>
+      <stop offset="45%" stop-color="#E5C76B"/>
+      <stop offset="100%" stop-color="#C9A227"/>
+    </linearGradient>
+
+    <linearGradient id="gold-2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8C6F14"/>
+      <stop offset="45%" stop-color="#E5C76B"/>
+      <stop offset="100%" stop-color="#C9A227"/>
+    </linearGradient>
+    <g>
+      <rect x="322" y="96" width="156" height="108" rx="14" fill="#141414"/>
+      <rect x="350.08" y="102" width="24.96" height="96" rx="6" fill="url(#gold-2)" opacity="0.35"/>
+    </g>
+    <rect x="360" y="198" width="80" height="46" fill="url(#gold-1)" opacity="0.9"/>
+    <rect x="286" y="288" width="294" height="70" rx="18" fill="url(#gold-1)"/>
+    <path d="M262 356 L604 356 L644 806 Q648 880 582 890 L284 890 Q218 880 222 806 Z" fill="url(#glass-1)" stroke="url(#gold-1)" stroke-width="4"/>
+    <path d="M300 372 L360 372 L330 866 L282 862 Z" fill="#2E2E2E" opacity="0.22"/>
+    <rect x="286" y="560" width="230" height="2" fill="url(#gold-1)" opacity="0.5"/>
+    <text x="401" y="530" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="46" letter-spacing="6" fill="url(#gold-1)">EZAKI</text>
+    <text x="401" y="640" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="34" letter-spacing="10" fill="url(#gold-1)" opacity="0.85">PARFUM</text>
+    <text x="401" y="700" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#E5C76B" opacity="0.75">عطر</text>
+    <circle cx="401" cy="446" r="34" fill="none" stroke="url(#gold-1)" stroke-width="2" opacity="0.8"/>
+    <text x="401" y="459" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="34" fill="url(#gold-1)">E</text>
+    <ellipse cx="401" cy="920" rx="210" ry="34" fill="#000000" opacity="0.5"/>
+  </g>
+  </g>
+  <g stroke="#C9A227" stroke-opacity="0.4" fill="none" stroke-width="2">
+    <path d="M110 320 q40 -30 80 0 q40 30 80 0"/>
+    <path d="M590 262 q34 -26 68 0 q34 26 68 0"/>
+  </g>
+  <text x="400" y="690" text-anchor="middle" font-family="Georgia, serif" font-size="34" letter-spacing="10" fill="url(#g2)">EZAKI PARFUM</text>
+  <text x="400" y="734" text-anchor="middle" font-family="Georgia, serif" font-size="24" fill="#E5C76B" opacity="0.75">عطر يليق بك</text>
+  <!-- reflets de lumiere tamisee -->
+  <g opacity="0.5">
+    <path d="M0 640 Q200 600 400 648 T800 620" stroke="#C9A227" stroke-opacity="0.16" fill="none" stroke-width="1.5"/>
+    <path d="M0 690 Q220 650 420 700 T800 672" stroke="#C9A227" stroke-opacity="0.10" fill="none" stroke-width="1.5"/>
+  </g>
+  <rect width="100%" height="100%" fill="url(#vignette)"/>
+  <rect width="100%" height="100%" filter="url(#grain)" opacity="0.5"/>
+  <rect x="24" y="24" width="752" height="752" rx="26" fill="none" stroke="#C9A227" stroke-opacity="0.16"/>
+</svg>

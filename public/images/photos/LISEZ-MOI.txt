@@ -1,0 +1,56 @@
+EZAKI PARFUM — DOSSIER PHOTOS
+============================
+
+Deposez ici les vraies photos de vos parfums : elles remplacent
+automatiquement les visuels vectoriels sur tout le site (accueil, boutique,
+fiche produit, panier, grille Instagram et apercu sur les reseaux sociaux).
+
+ETAPE 1 — nommer les fichiers
+-----------------------------
+Nommez simplement chaque photo avec le nom du parfum (cet identifiant
+correspond au champ "slug" de lib/products.ts) :
+
+  ezaki-noir.jpg         -> EZAKI Noir
+  ezaki-royal.jpg        -> EZAKI Royal
+  ezaki-oud.jpg          -> EZAKI Oud
+  ezaki-elegance.jpg     -> EZAKI Elegance
+  ezaki-blanc.jpg        -> EZAKI Blanc
+  ezaki-ambre.jpg        -> EZAKI Ambre
+
+Photos d'ambiance (facultatives) :
+
+  hero.jpg               -> grand visuel de la page d'accueil
+  packaging.jpg          -> coffret / emballage (section A propos)
+  lifestyle.jpg          -> ambiance, mannequin, boutique (page A propos)
+  about.jpg              -> autre visuel d'ambiance
+  instagram-1.jpg ... instagram-6.jpg
+                         -> les 6 vignettes de la section Instagram
+  og.jpg                 -> image de partage (WhatsApp / Facebook), 1200x630
+
+Extensions acceptees : .jpg  .jpeg  .png  .webp  .avif
+
+ETAPE 2 — activer
+-----------------
+Lancez la commande :
+
+  npm run photos
+
+(c'est aussi fait automatiquement avant `npm run dev` et `npm run build`).
+Le site utilise alors vos photos partout, sans modifier une seule ligne de code.
+
+CONSEILS DE PHOTO
+-----------------
+- Cadrage vertical 4:5 (ex. 1200 x 1500 px) pour les flacons : c'est le
+  format des cartes produit.
+- Fond sombre (noir, gris anthracite, marbre) + une source de lumiere doree :
+  cela correspond a l'identite noir et or de la marque.
+- Lumiere naturelle indirecte, evitez le flash direct.
+- Gardez le flacon bien net et centre, avec un peu d'espace autour.
+- Poids conseille : moins de 500 Ko par image (le site optimise deja les
+  formats automatiquement).
+
+LICENCES
+--------
+N'utilisez que vos propres photos, des photos prises pour la marque, ou des
+images libres de droits autorisant l'usage commercial (Unsplash, Pexels,
+Pixabay). Evitez les visuels montrant les flacons d'autres marques.

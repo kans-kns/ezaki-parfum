@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>preview</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        background: #1a1a1a;
+        font: 12px/1.4 monospace;
+      }
+      #bar {
+        height: 26px;
+        background: #000;
+        color: #0f0;
+        padding: 6px 8px;
+        box-sizing: border-box;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      iframe {
+        display: block;
+        border: 0;
+        background: #080808;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="bar">chargement…</div>
+    <iframe id="f" src="/"></iframe>
+    <script>
+      var p = new URLSearchParams(location.search);
+      var w = parseInt(p.get('w') || '390', 10);
+      var h = parseInt(p.get('h') || '1500', 10);
+      var u = p.get('u') || '/';
+      var f = document.getElementById('f');
+      var bar = document.getElementById('bar');
+      f.style.width = w + 'px';
+      f.style.height = h + 'px';
+      f.src = u;
+      f.addEventListener('load', function () {
+        setTimeout(function () {
+          var d = f.contentDocument;
+          var de = d.documentElement;
+          var vw = de.clientWidth;
+          var offenders = 0;
+          var nodes = d.querySelectorAll('body *');
+          function isClipped(el) {
+            var n = el.parentElement;
+            while (n && n !== d.body) {
+              if (d.defaultView.getComputedStyle(n).overflowX !== 'visible') return true;
+              n = n.parentElement;
+            }
+            return false;
+          }
+          for (var i = 0; i < nodes.length; i++) {
+            var r = nodes[i].getBoundingClientRect();
+            if (r.width && (r.right > vw + 1 || r.left < -1) && !isClipped(nodes[i])) offenders++;
+          }
+          bar.textContent =
+            'iframe ' + w + 'px | ' + u + ' | clientW=' + vw + ' scrollW=' + de.scrollWidth +
+            ' | hors-cadre=' + offenders + (de.scrollWidth > vw + 1 ? ' | DEBORDEMENT' : ' | OK');
+        }, 900);
+      });
+    </script>
+  </body>
+</html>
